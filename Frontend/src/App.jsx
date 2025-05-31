@@ -1,9 +1,10 @@
 import './App.css'
+import { HomePage } from './pages/Home/HomePage'
 
 function App() {
   return (
     <>
-      <h1>HR3D Agent</h1>
+      <HomePage/>
     </>
   )
 }

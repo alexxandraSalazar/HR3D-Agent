@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables globales */
+:root {
+  --color-google-blue: #4285F4;
+  --color-google-red: #EA4335;
+  --color-google-yellow: #FBBC05;
+  --color-google-green: #34A853;
+
+  --color-white: #ffffff;
+
+  --font-sans: 'Open Sans', sans-serif;
+}
+
+body {
+  @apply bg-white text-gray-900 font-sans antialiased;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-gray-900;
+}
+
+a {
+  @apply text-[color:var(--color-google-blue)] hover:underline;
+}
+
+/* Clases personalizadas opcionales */
+.btn-google {
+  @apply text-white font-semibold py-2 px-4 rounded shadow;
+  background-color: var(--color-google-blue);
+}
+
+.btn-google-red {
+  background-color: var(--color-google-red);
+}
+
+.btn-google-yellow {
+  background-color: var(--color-google-yellow);
+  color: #000; /* Mejor contraste */
+}
+
+.btn-google-green {
+  background-color: var(--color-google-green);
+}
