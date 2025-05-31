@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Menu } from "lucide-react"
 
@@ -11,11 +9,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
-      if (scrollPosition > 10) {
-        setHasScrolled(true)
-      } else {
-        setHasScrolled(false)
-      }
+      setHasScrolled(scrollPosition > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -43,7 +37,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleSectionVisibility = () => {
-      const sections = ["home", "about", "features", "how-it-works", "demo", "why-harold", "team"]
+      const sections = ["home", "about", "features", "how-it-works", "team"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -51,7 +45,6 @@ export default function Navbar() {
         if (element) {
           const top = element.offsetTop - 100
           const bottom = top + element.offsetHeight
-
           if (scrollPosition >= top && scrollPosition < bottom) {
             setActiveSection(section)
             break
@@ -63,16 +56,15 @@ export default function Navbar() {
     window.addEventListener("scroll", handleSectionVisibility)
     return () => window.removeEventListener("scroll", handleSectionVisibility)
   }, [])
+  
+const navigationItems = [
+  { id: "home", label: "Home", color: "var(--color-google-blue)" },
+  { id: "about", label: "About", color: "var(--color-google-red)" },
+  { id: "features", label: "Features", color: "var(--color-google-yellow)" },
+  { id: "how-it-works", label: "How It Works", color: "var(--color-google-green)" },
+  { id: "team", label: "Team", color: "var(--color-google-yellow)" }, // ← actualizado
+]
 
-  const navigationItems = [
-    { id: "home", label: "Home", color: "var(--color-google-blue)" },
-    { id: "about", label: "About", color: "var(--color-google-red)" },
-    { id: "features", label: "Features", color: "var(--color-google-yellow)" },
-    { id: "how-it-works", label: "How It Works", color: "var(--color-google-green)" },
-    { id: "demo", label: "Demo", color: "var(--color-google-blue)" },
-    { id: "why-harold", label: "Why Harold", color: "var(--color-google-red)" },
-    { id: "team", label: "Team", color: "var(--color-google-green)" },
-  ]
 
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId)
@@ -93,33 +85,22 @@ export default function Navbar() {
       }`}
       style={{ fontFamily: 'var(--font-sans, "Open Sans", sans-serif)' }}
     >
-      {/* Decorative elements */}
-      <div
-        className="absolute left-36 top-4 w-1 h-1 rounded-full opacity-70"
-        style={{ backgroundColor: "var(--color-google-blue)" }}
-      ></div>
-      <div
-        className="absolute right-1/4 bottom-2 w-1 h-1 rounded-full opacity-70"
-        style={{ backgroundColor: "var(--color-google-green)" }}
-      ></div>
-
       {/* Logo */}
       <div className="flex-shrink-0">
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 flex items-center justify-center">
-            {/* Replace this with your SVG logo */}
             <img src="/favicon.svg" alt="Logo" className="w-full h-full" />
           </div>
-            <div className="hidden sm:block">
+          <div className="hidden sm:block">
             <h1 className="text-xl font-bold">
-                <span style={{ color: "#4285F4" }}>H</span>
-                <span style={{ color: "#EA4335" }}>R</span>
-                <span style={{ color: "#FBBC05" }}>3</span>
-                <span style={{ color: "#34A853" }}>D</span>
-                <span style={{ color: "#5F6368" }}> Agent</span>
+              <span style={{ color: "#4285F4" }}>H</span>
+              <span style={{ color: "#EA4335" }}>R</span>
+              <span style={{ color: "#FBBC05" }}>3</span>
+              <span style={{ color: "#34A853" }}>D</span>
+              <span style={{ color: "#5F6368" }}> Agent</span>
             </h1>
             <p className="text-xs text-gray-600">Powered by Harold</p>
-            </div>
+          </div>
         </div>
       </div>
 
