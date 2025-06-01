@@ -24,7 +24,7 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="min-h-screen  px-6 bg-white relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="min-h-screen px-6 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 fade-in-element">

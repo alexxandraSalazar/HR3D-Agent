@@ -2,9 +2,41 @@
 
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Environment, PerspectiveCamera, Float, useGLTF } from "@react-three/drei"
+import { Suspense } from "react"
+
+function LoadingSpinner() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+      <div className="relative">
+        {/* Spinning circle with Google colors */}
+        <div className="w-16 h-16 relative">
+          <div
+            className="absolute inset-0 rounded-full border-4 border-transparent animate-spin"
+            style={{
+              borderTopColor: "#4285F4",
+              borderRightColor: "#EA4335",
+              borderBottomColor: "#FBBC05",
+              borderLeftColor: "#34A853",
+              animationDuration: "1s",
+            }}
+          />
+          <div
+            className="absolute inset-2 rounded-full border-2 border-transparent animate-spin"
+            style={{
+              borderTopColor: "#4285F4",
+              animationDuration: "1.5s",
+              animationDirection: "reverse",
+            }}
+          />
+        </div>
+        <p className="mt-4 text-sm font-medium text-gray-600 text-center">Loading Harold...</p>
+      </div>
+    </div>
+  )
+}
 
 function HaroldModel() {
-  const gltf = useGLTF("/harold.glb") // Asegúrate de que el archivo esté en /public
+  const gltf = useGLTF("/harold.glb") 
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8} floatingRange={[0, 0.5]}>
@@ -15,24 +47,24 @@ function HaroldModel() {
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-0">
       {/* Plain white background */}
       <div className="absolute inset-0 bg-white" />
 
       {/* Decorative elements */}
 
-      <div className="container mx-auto px-6 py-10 relative z-10">
+      <div className="container mx-auto px-6 pt-10 pb-0 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <h1 className="text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-sans)" }}>
-                <span style={{ color: "#4285F4" }}>H</span>
-                <span style={{ color: "#EA4335" }}>R</span>
-                <span style={{ color: "#FBBC05" }}>3</span>
-                <span style={{ color: "#34A853" }}>D</span>
-                <span style={{ color: "#5F6368" }}> Agent</span>
+                  <span style={{ color: "#4285F4" }}>H</span>
+                  <span style={{ color: "#EA4335" }}>R</span>
+                  <span style={{ color: "#FBBC05" }}>3</span>
+                  <span style={{ color: "#34A853" }}>D</span>
+                  <span style={{ color: "#5F6368" }}> Agent</span>
                 </h1>
               </div>
 
@@ -74,7 +106,9 @@ export default function Hero() {
                 <directionalLight position={[10, 10, 5]} intensity={1} />
                 <pointLight position={[-10, -10, -5]} intensity={0.5} />
 
-                <HaroldModel />
+                <Suspense fallback={null}>
+                  <HaroldModel />
+                </Suspense>
 
                 <Environment preset="city" />
                 <OrbitControls
@@ -86,11 +120,15 @@ export default function Hero() {
                   minPolarAngle={Math.PI / 3}
                 />
               </Canvas>
+
+              {/* Loading overlay */}
+              <Suspense fallback={<LoadingSpinner />}>
+                <HaroldModelLoader />
+              </Suspense>
             </div>
 
             {/* 3D Scene Info */}
-            <div className="absolute bottom-40 left-52
-             bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+            <div className="absolute bottom-40 left-52 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
               <p className="text-sm font-medium text-gray-800">👆 Interact with Harold!</p>
               <p className="text-xs text-gray-600">Drag to rotate • Auto-rotating</p>
             </div>
@@ -100,3 +138,12 @@ export default function Hero() {
     </section>
   )
 }
+
+// Component to handle loading state
+function HaroldModelLoader() {
+  useGLTF("/harold.glb") // This will trigger Suspense
+  return null
+}
+
+// Preload the model
+useGLTF.preload("/harold.glb")
