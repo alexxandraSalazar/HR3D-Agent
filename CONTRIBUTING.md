@@ -4,6 +4,57 @@ Welcome! To maintain consistency and ensure a smooth workflow for everyone, plea
 
 ---
 
+## 📌 Installation
+
+1. **Clone repository**
+
+   ```bash
+   git clone https://github.com/alexxandraSalazar/HR3D-Agent.git
+   ```
+2. **Create and activate virtual environment** 
+
+   ```bash
+   cd HR3D-AGENT
+   python -m venv venv
+   ./venv/Scripts/activate
+   ```
+3. **Install dependencies** 
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Creat .envs files for develop and production**
+
+   ```bash
+   cd backend
+   ```
+   _Create '.env.dev' file and '.env.prod' files_
+
+   ```bash
+   backend/
+      ├── apps/
+      ├── core/
+      │   ├── settings/
+      │   │   ├── base.py
+      │   │   ├── dev.py
+      │   │   ├── prod.py
+      │   │   └── __init__.py
+      │   ├── asgi.py
+      │   ├── urls.py
+      │   └── wsgi.py
+      ├── .env.dev           ← add .env.dev variables
+      ├── .env.prod          ← add .env.prod variables
+      ├── manage.py
+   ```
+4. **Apply migrations**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+5. **Run in dev**
+   ```bash
+   python manage.py runserver --settings=core.settings.dev
+   ```
 
 ## 📌 Workflow
 
