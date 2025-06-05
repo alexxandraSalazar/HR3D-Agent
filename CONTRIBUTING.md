@@ -21,7 +21,8 @@ Welcome! To maintain consistency and ensure a smooth workflow for everyone, plea
 3. **Install dependencies** 
 
    ```bash
-   pip install -r requirements.txt
+   backend-->  pip install -r requirements.txt
+   frontend-->  npm install
    ```
 
 4. **Apply migrations**
