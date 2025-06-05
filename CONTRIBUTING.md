@@ -23,29 +23,7 @@ Welcome! To maintain consistency and ensure a smooth workflow for everyone, plea
    ```bash
    pip install -r requirements.txt
    ```
-4. **Creat .envs files for develop and production**
 
-   ```bash
-   cd backend
-   ```
-   _Create '.env.dev' file and '.env.prod' files_
-
-   ```bash
-   backend/
-      ├── apps/
-      ├── core/
-      │   ├── settings/
-      │   │   ├── base.py
-      │   │   ├── dev.py
-      │   │   ├── prod.py
-      │   │   └── __init__.py
-      │   ├── asgi.py
-      │   ├── urls.py
-      │   └── wsgi.py
-      ├── .env.dev           ← add .env.dev variables
-      ├── .env.prod          ← add .env.prod variables
-      ├── manage.py
-   ```
 4. **Apply migrations**
    ```bash
    python manage.py makemigrations
@@ -53,8 +31,30 @@ Welcome! To maintain consistency and ensure a smooth workflow for everyone, plea
    ```
 5. **Run in dev**
    ```bash
-   python manage.py runserver --settings=core.settings.dev
+   python manage.py runserver 
    ```
+6. **Creat .envs files**
+
+   ```bash
+   cd frontend
+   ```
+   _Create '.env'_
+   add the enviroment variables
+
+7. **Create superuser**
+   ```bash
+   cd backend
+   python manage.py createsuperuser
+   ```
+8. Go to [localhost:8000/admin](http://localhost:8000/admin/)*
+9. Go to 'social applications'
+10. Add Social Application:
+      -provider: Google
+      -Client id: Google client id
+      -name: google
+      -Secret key: Google secret key
+11. Save changes
+
 
 ## 📌 Workflow
 
