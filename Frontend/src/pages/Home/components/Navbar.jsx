@@ -150,17 +150,18 @@ export default function Navbar() {
         </>
       ) : (
         <>
-          <div >
-            <Link
-              to='/login'
-              className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
-              style={{ backgroundColor: "var(--color-google-blue)", color: "white" }}
-            >
-              Log In
+          <div className="hidden md:block">
+            <Link to="/login">
+              <button
+                className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
+                style={{ backgroundColor: "var(--color-google-blue)" }}
+              >
+                Login
+              </button>
             </Link>
           </div>
 
-          <div>
+          {/* <div>
             <Link
               to='/register'
               className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
@@ -168,7 +169,7 @@ export default function Navbar() {
             >
               Register
             </Link>
-          </div>
+          </div> */}
         </>
       )}
 
@@ -198,12 +199,18 @@ export default function Navbar() {
                 {item.label}
               </button>
             ))}
+
+            <div>
+            <Link to="/login">
             <button
               className="text-white font-medium rounded-full px-6 py-2 mt-2 transition-colors duration-300 hover:opacity-90"
               style={{ backgroundColor: "var(--color-google-blue)" }}
             >
               Login
             </button>
+            </Link>  
+            </div>
+            
           </div>
         </div>
       )}

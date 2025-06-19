@@ -3,6 +3,7 @@
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Environment, PerspectiveCamera, Float, useGLTF } from "@react-three/drei"
 import { Suspense } from "react"
+import { Link } from "react-router-dom"
 
 function LoadingSpinner() {
   return (
@@ -79,12 +80,18 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                className="px-6 py-3 rounded-full text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                style={{ backgroundColor: "var(--color-google-blue)" }}
-              >
-                Get Started Free
-              </button>
+<Link to="/register">
+      <button
+        className="px-6 py-3 rounded-full text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        style={{ backgroundColor: "var(--color-google-blue)" }}
+      >
+        Get Started Free
+      </button>
+    </Link>
+
+              
+
+              
               <button
                 className="px-6 py-3 rounded-full font-semibold text-base border-2 transition-all duration-300 hover:scale-105"
                 style={{
