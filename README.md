@@ -3,7 +3,7 @@
 [![Django](https://img.shields.io/badge/Django-red)](https://www.djangoproject.com/)
 ![HTML](https://img.shields.io/badge/HTML-blue)
 ![CSS](https://img.shields.io/badge/CSS-green)
-[[![VisualStudioCode](https://img.shields.io/badge/Visual-Studio-Code-blue)](https://code.visualstudio.com/)]
+[![VisualStudioCode](https://img.shields.io/badge/Visual-Studio-Code-blue)](https://code.visualstudio.com/)
 
 
 
