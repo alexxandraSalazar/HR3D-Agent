@@ -35,6 +35,10 @@ What sets **Harold** apart is his **interactive 3D avatar**, delivering a visual
 
 ---
 
+## HR3D AGENT ARCHITECTURE DIAGRAM
+![HR3D](HR3D AGENT GIF.gif)
+
+
 Harness the power of intelligent systems with **HR3D Agent** — where automation meets innovation through Harold, your virtual HR companion.
 
 ## Authors
