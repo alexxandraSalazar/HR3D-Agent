@@ -12,6 +12,8 @@
 
 ---
 
+![HR3D](https://github.com/alexxandraSalazar/HR3D-Agent/blob/main/HR3D%20Agent.png)
+
 ## Name Meaning
 
 - **HR** → Focused on **Human Resources** and inspired by the name **Harold**  
