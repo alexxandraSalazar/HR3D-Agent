@@ -5,6 +5,8 @@ import About from './components/About'
 import Features from './components/Feature'
 import Team from './components/Team'
 import Footer from './components/Footer'
+import WorkFlow from './components/WorkFlow'
+
 
 export const HomePage = () => {
   return (
@@ -13,6 +15,7 @@ export const HomePage = () => {
     <Hero/>
     <About/>
     <Features/>
+    <WorkFlow/>
     <Team/>
     <Footer/>
     
