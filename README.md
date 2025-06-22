@@ -13,7 +13,7 @@
 ---
 
 ![HR3D](https://github.com/alexxandraSalazar/HR3D-Agent/blob/main/HR3D%20Agent.png)
-HAROLD
+**HAROLD**
 
 ## Name Meaning
 
