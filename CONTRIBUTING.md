@@ -4,6 +4,58 @@ Welcome! To maintain consistency and ensure a smooth workflow for everyone, plea
 
 ---
 
+## 📌 Installation
+
+1. **Clone repository**
+
+   ```bash
+   git clone https://github.com/alexxandraSalazar/HR3D-Agent.git
+   ```
+2. **Create and activate virtual environment** 
+
+   ```bash
+   cd HR3D-AGENT
+   python -m venv venv
+   ./venv/Scripts/activate
+   ```
+3. **Install dependencies** 
+
+   ```bash
+   backend-->  pip install -r requirements.txt
+   frontend-->  npm install
+   ```
+
+4. **Apply migrations**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+5. **Run in dev**
+   ```bash
+   python manage.py runserver 
+   ```
+6. **Creat .envs files**
+
+   ```bash
+   cd frontend
+   ```
+   _Create '.env'_
+   add the enviroment variables
+
+7. **Create superuser**
+   ```bash
+   cd backend
+   python manage.py createsuperuser
+   ```
+8. Go to [localhost:8000/admin](http://localhost:8000/admin/)*
+9. Go to 'social applications'
+10. Add Social Application:
+      -provider: Google
+      -Client id: Google client id
+      -name: google
+      -Secret key: Google secret key
+11. Save changes
+
 
 ## 📌 Workflow
 
