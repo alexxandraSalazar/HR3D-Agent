@@ -25,7 +25,7 @@ export default function Team() {
       lastName: "Chávez",
       role: "Developer",
       color: "var(--color-google-blue)", 
-      svgCode: `<img src="/images/Danny.svg" alt="Danny" />`,
+      svgCode: `<img src="/danny.webp" alt="Danny" />`,
     },
     {
       firstName: "Adilia",

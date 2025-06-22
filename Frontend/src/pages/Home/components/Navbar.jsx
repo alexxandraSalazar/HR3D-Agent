@@ -1,10 +1,24 @@
 import { useState, useEffect } from "react"
 import { Menu } from "lucide-react"
+import GoogleSignInButton from "./GoogleSignInButton"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useAuthentication } from "../../../auth"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const { isAuthorized, logout } = useAuthentication();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+  }
+
+  useEffect(() => {
+    console.log("isAuthorized:", isAuthorized);
+  }, [isAuthorized]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,14 +70,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleSectionVisibility)
     return () => window.removeEventListener("scroll", handleSectionVisibility)
   }, [])
-  
-const navigationItems = [
-  { id: "home", label: "Home", color: "var(--color-google-blue)" },
-  { id: "about", label: "About", color: "var(--color-google-red)" },
-  { id: "features", label: "Features", color: "var(--color-google-yellow)" },
-  { id: "how-it-works", label: "How It Works", color: "var(--color-google-green)" },
-  { id: "team", label: "Team", color: "var(--color-google-yellow)" }, // ← actualizado
-]
+
+  const navigationItems = [
+    { id: "home", label: "Home", color: "var(--color-google-blue)" },
+    { id: "about", label: "About", color: "var(--color-google-red)" },
+    { id: "features", label: "Features", color: "var(--color-google-yellow)" },
+    { id: "how-it-works", label: "How It Works", color: "var(--color-google-green)" },
+    { id: "team", label: "Team", color: "var(--color-google-yellow)" }, // ← actualizado
+  ]
 
 
   const handleNavClick = (sectionId) => {
@@ -80,9 +94,8 @@ const navigationItems = [
 
   return (
     <nav
-      className={`w-full py-2 px-6 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        hasScrolled ? "bg-white shadow-md" : "bg-white/90 backdrop-blur-sm"
-      }`}
+      className={`w-full py-2 px-6 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${hasScrolled ? "bg-white shadow-md" : "bg-white/90 backdrop-blur-sm"
+        }`}
       style={{ fontFamily: 'var(--font-sans, "Open Sans", sans-serif)' }}
     >
       {/* Logo */}
@@ -111,9 +124,8 @@ const navigationItems = [
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`font-medium px-4 py-1 rounded-full transition-colors duration-300 text-sm ${
-                activeSection === item.id ? "text-white" : "text-gray-700 hover:text-black"
-              }`}
+              className={`font-medium px-4 py-1 rounded-full transition-colors duration-300 text-sm ${activeSection === item.id ? "text-white" : "text-gray-700 hover:text-black"
+                }`}
               style={{
                 backgroundColor: activeSection === item.id ? item.color : "transparent",
               }}
@@ -124,15 +136,44 @@ const navigationItems = [
         </div>
       </div>
 
-      {/* Login Button */}
-      <div className="hidden md:block">
-        <button
-          className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
-          style={{ backgroundColor: "var(--color-google-blue)" }}
-        >
-          Login
-        </button>
-      </div>
+      {isAuthorized ? (
+        <>
+          <div >
+            <button
+              onClick={handleLogout}
+              className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
+              style={{ backgroundColor: "var(--color-google-red)", color: "white" }}
+            >
+              Log out
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="hidden md:block">
+            <Link to="/login">
+              <button
+                className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
+                style={{ backgroundColor: "var(--color-google-blue)" }}
+              >
+                Login
+              </button>
+            </Link>
+          </div>
+
+          {/* <div>
+            <Link
+              to='/register'
+              className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
+              style={{ backgroundColor: "var(--color-google-blue)", color: "white" }}
+            >
+              Register
+            </Link>
+          </div> */}
+        </>
+      )}
+
+
 
       {/* Mobile Menu Button */}
       <div className="lg:hidden flex items-center">
@@ -149,9 +190,8 @@ const navigationItems = [
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`font-medium px-4 py-2 rounded-full text-center transition-colors duration-300 ${
-                  activeSection === item.id ? "text-white" : "text-gray-700 hover:text-black"
-                }`}
+                className={`font-medium px-4 py-2 rounded-full text-center transition-colors duration-300 ${activeSection === item.id ? "text-white" : "text-gray-700 hover:text-black"
+                  }`}
                 style={{
                   backgroundColor: activeSection === item.id ? item.color : "transparent",
                 }}
@@ -159,12 +199,18 @@ const navigationItems = [
                 {item.label}
               </button>
             ))}
+
+            <div>
+            <Link to="/login">
             <button
               className="text-white font-medium rounded-full px-6 py-2 mt-2 transition-colors duration-300 hover:opacity-90"
               style={{ backgroundColor: "var(--color-google-blue)" }}
             >
               Login
             </button>
+            </Link>  
+            </div>
+            
           </div>
         </div>
       )}

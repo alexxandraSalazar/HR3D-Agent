@@ -25,7 +25,7 @@ const Footer = () => {
             <span className="sr-only">LinkedIn</span>
           </a>
           <a
-            href="#"
+            href="https://github.com/alexxandraSalazar/HR3D-Agent"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-gray-300 p-2 hover:bg-gray-100 transition-colors"
