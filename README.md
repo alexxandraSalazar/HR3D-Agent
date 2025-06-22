@@ -1,5 +1,6 @@
 [![GCP](https://img.shields.io/badge/GCP-Console-blue)](https://console.cloud.google.com/welcome/new?pli=1&inv=1&invt=Ab0wWw)
 [![ADK Agent](https://img.shields.io/badge/ADK-Agent-green)](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/develop/adk)
+[![Django](https://img.shields.io/badge/Django-red)](https://www.djangoproject.com/)
 
 
 # HR3D Agent 🤖
