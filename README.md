@@ -2,8 +2,8 @@
 [![ADK Agent](https://img.shields.io/badge/ADK-Agent-green)](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/develop/adk)
 [![Django](https://img.shields.io/badge/Django-red)](https://www.djangoproject.com/)
 ![HTML](https://img.shields.io/badge/HTML-blue)
-[![CSS](https://img.shields.io/badge/CSS-green)]
-[![HTML](https://img.shields.io/badge/Visual-Studio-Code-blue)] (https://code.visualstudio.com/)
+![CSS](https://img.shields.io/badge/CSS-green)
+[![Visual Studio Code](https://img.shields.io/badge/Visual-Studio-Code-blue)](https://code.visualstudio.com/)]
 
 
 
