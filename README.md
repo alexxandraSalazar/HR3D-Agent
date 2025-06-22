@@ -1,3 +1,7 @@
+[![visualstudio](https://img.shields.io/badge/visual%20studio%20code-download-blue)](https://code.visualstudio.com/)
+[![ADK Agent](https://img.shields.io/badge/docusaurus-download-green)](https://github.com/facebook/docusaurus)
+
+
 # HR3D Agent 🤖
 
 **The intelligent 3D assistant for human resource automation.**
