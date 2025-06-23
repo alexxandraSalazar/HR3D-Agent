@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Chat from "../../../components/Chat";
 
-export default function Features() {
+export default function Features({ sessionId }) {
   const [activeFeature, setActiveFeature] = useState(0);
   const sectionRef = useRef(null);
 
@@ -90,12 +91,18 @@ export default function Features() {
 
         {/* Features Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* <iframe
+            src="http://localhost:8001" 
+            style={{ width: "100%", height: "600px", border: "none" }}
+            allow="autoplay"
+            title="Voice Assistant"
+          /> */}
+          <Chat sessionId={sessionId} />
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`fade-in-element bg-white rounded-2xl p-8 shadow-lg border border-gray-200 cursor-pointer transition-all duration-500 hover:shadow-xl ${
-                activeFeature === index ? "ring-2 ring-opacity-50" : ""
-              }`}
+              className={`fade-in-element bg-white rounded-2xl p-8 shadow-lg border border-gray-200 cursor-pointer transition-all duration-500 hover:shadow-xl ${activeFeature === index ? "ring-2 ring-opacity-50" : ""
+                }`}
               style={{
                 transform:
                   activeFeature === index ? "scale(1.02)" : "scale(1)",
@@ -115,9 +122,8 @@ export default function Features() {
                   }}
                 >
                   <span
-                    className={`text-2xl ${
-                      activeFeature === index ? "animate-bounce" : ""
-                    }`}
+                    className={`text-2xl ${activeFeature === index ? "animate-bounce" : ""
+                      }`}
                   >
                     {feature.icon}
                   </span>
