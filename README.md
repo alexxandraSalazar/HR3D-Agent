@@ -85,22 +85,22 @@ To run the project locally:
    ```bash
    cd backend
    ```
-```bash
-python -m venv venv
-```
-```bash
-venv/bin/activate
-```   
+   ```bash
+   python -m venv venv
+   ```
+   ```bash
+   venv/bin/activate
+   ```   
 **O**
-```bash
-venv\Scripts\activate en Windows
-```
-```bash
-pip install -r requirements.txt
-```
-```bash
-python manage.py runserver
-```
+   ```bash
+   venv\Scripts\activate en Windows
+   ```
+   ```bash
+   pip install -r requirements.txt
+   ```
+   ```bash
+   python manage.py runserver
+   ```
 
 3. **Frontend (React + Vite)**
    ```bash
