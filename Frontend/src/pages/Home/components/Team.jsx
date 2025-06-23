@@ -11,7 +11,7 @@ export default function Team() {
       lastName: "Salazar",
       role: "Frontend Dev | UI/UX Designer",
       color: "var(--color-google-yellow)", 
-      svgCode: `<img src="/Alexandra.svg" alt="Alexandra" />`,
+      svgCode: `<img src="/Alexandra.webp" alt="Alexandra" />`,
     },
     {
       firstName: "Alexa",
