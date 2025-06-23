@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Environment, PerspectiveCamera, Float, useGLTF } from "@react-three/drei"
 import { Suspense } from "react"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 function LoadingSpinner() {
   return (
@@ -37,7 +38,7 @@ function LoadingSpinner() {
 }
 
 function HaroldModel() {
-  const gltf = useGLTF("/harold.glb") 
+  const gltf = useGLTF("/harold.glb")
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8} floatingRange={[0, 0.5]}>
@@ -47,6 +48,8 @@ function HaroldModel() {
 }
 
 export default function Hero() {
+  const [showIframe, setShowIframe] = useState(false);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-0">
       {/* Plain white background */}
@@ -58,51 +61,65 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <h1 className="text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-sans)" }}>
-                  <span style={{ color: "#4285F4" }}>H</span>
-                  <span style={{ color: "#EA4335" }}>R</span>
-                  <span style={{ color: "#FBBC05" }}>3</span>
-                  <span style={{ color: "#34A853" }}>D</span>
-                  <span style={{ color: "#5F6368" }}> Agent</span>
-                </h1>
-              </div>
+            {!showIframe ? (
+              <>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-2">
+                    <h1 className="text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-sans)" }}>
+                      <span style={{ color: "#4285F4" }}>H</span>
+                      <span style={{ color: "#EA4335" }}>R</span>
+                      <span style={{ color: "#FBBC05" }}>3</span>
+                      <span style={{ color: "#34A853" }}>D</span>
+                      <span style={{ color: "#5F6368" }}> Agent</span>
+                    </h1>
+                  </div>
 
-              <p className="text-xl lg:text-2xl text-gray-600 font-medium">
-                The intelligent 3D assistant for human resource automation.
-              </p>
-            </div>
+                  <p className="text-xl lg:text-2xl text-gray-600 font-medium">
+                    The intelligent 3D assistant for human resource automation.
+                  </p>
+                </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Meet Harold, a smart virtual assistant designed to revolutionize human resource management through the
-              automation of complex workflows.
-            </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Meet Harold, a smart virtual assistant designed to revolutionize human resource management through the
+                  automation of complex workflows.
+                </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-<Link to="/register">
-      <button
-        className="px-6 py-3 rounded-full text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg"
-        style={{ backgroundColor: "var(--color-google-blue)" }}
-      >
-        Get Started Free
-      </button>
-    </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                    <button
+                      className="px-6 py-3 rounded-full text-white font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      style={{ backgroundColor: "var(--color-google-blue)" }}
+                      onClick={() => setShowIframe(true)}
+                    >
+                      Get Started Free
+                    </button>
 
-              
 
-              
-              <button
-                className="px-6 py-3 rounded-full font-semibold text-base border-2 transition-all duration-300 hover:scale-105"
-                style={{
-                  borderColor: "var(--color-google-green)",
-                  color: "var(--color-google-green)",
-                }}
-              >
-                Watch Demo
-              </button>
-            </div>
+
+
+                  <button
+                    className="px-6 py-3 rounded-full font-semibold text-base border-2 transition-all duration-300 hover:scale-105"
+                    style={{
+                      borderColor: "var(--color-google-green)",
+                      color: "var(--color-google-green)",
+                    }}
+                  >
+                    Watch Demo
+                  </button>
+                </div>
+              </>
+            ) : (
+              <iframe
+                src="http://localhost:8000"
+                width="100%"
+                height="500"
+                allow="microphone"
+                loading="lazy"
+                title="Get Started"
+              ></iframe>
+            )}
           </div>
+
+
 
           {/* Right Content - 3D Harold GLB */}
           <div className="relative h-[600px] lg:h-[700px]">

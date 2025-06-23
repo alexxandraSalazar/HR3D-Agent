@@ -75,8 +75,7 @@ export default function Navbar() {
     { id: "home", label: "Home", color: "var(--color-google-blue)" },
     { id: "about", label: "About", color: "var(--color-google-red)" },
     { id: "features", label: "Features", color: "var(--color-google-yellow)" },
-    { id: "how-it-works", label: "How It Works", color: "var(--color-google-green)" },
-    { id: "team", label: "Team", color: "var(--color-google-yellow)" }, // ← actualizado
+    { id: "team", label: "Team", color: "var(--color-google-green)" }, // ← actualizado
   ]
 
 
@@ -150,16 +149,6 @@ export default function Navbar() {
         </>
       ) : (
         <>
-          <div className="hidden md:block">
-            <Link to="/login">
-              <button
-                className="text-white font-medium rounded-full px-6 py-2 flex items-center transition-colors duration-300 hover:opacity-90"
-                style={{ backgroundColor: "var(--color-google-blue)" }}
-              >
-                Login
-              </button>
-            </Link>
-          </div>
 
           {/* <div>
             <Link
@@ -201,14 +190,6 @@ export default function Navbar() {
             ))}
 
             <div>
-            <Link to="/login">
-            <button
-              className="text-white font-medium rounded-full px-6 py-2 mt-2 transition-colors duration-300 hover:opacity-90"
-              style={{ backgroundColor: "var(--color-google-blue)" }}
-            >
-              Login
-            </button>
-            </Link>  
             </div>
             
           </div>
