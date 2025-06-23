@@ -65,13 +65,13 @@ export default function Team() {
         <div className="text-center mb-16 fade-in-element">
           <h2
             className="text-5xl md:text-6xl font-bold mb-6"
-            style={{ color: "var(--color-google-yellow)" }}
+            style={{ color: "var(--color-google-green)" }}
           >
             Our Team
           </h2>
           <div
             className="w-24 h-1 mx-auto rounded-full"
-            style={{ backgroundColor: "var(--color-google-yellow)" }}
+            style={{ backgroundColor: "var(--color-google-green)" }}
           ></div>
           <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
             Meet the talented individuals behind HR3D Agent

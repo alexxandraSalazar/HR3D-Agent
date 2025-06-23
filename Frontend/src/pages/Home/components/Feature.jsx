@@ -93,9 +93,8 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`fade-in-element bg-white rounded-2xl p-8 shadow-lg border border-gray-200 cursor-pointer transition-all duration-500 hover:shadow-xl ${
-                activeFeature === index ? "ring-2 ring-opacity-50" : ""
-              }`}
+              className={`fade-in-element bg-white rounded-2xl p-8 shadow-lg border border-gray-200 cursor-pointer transition-all duration-500 hover:shadow-xl ${activeFeature === index ? "ring-2 ring-opacity-50" : ""
+                }`}
               style={{
                 transform:
                   activeFeature === index ? "scale(1.02)" : "scale(1)",
@@ -115,9 +114,8 @@ export default function Features() {
                   }}
                 >
                   <span
-                    className={`text-2xl ${
-                      activeFeature === index ? "animate-bounce" : ""
-                    }`}
+                    className={`text-2xl ${activeFeature === index ? "animate-bounce" : ""
+                      }`}
                   >
                     {feature.icon}
                   </span>
