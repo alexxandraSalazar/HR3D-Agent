@@ -109,7 +109,7 @@ export default function Hero() {
               </>
             ) : (
               <iframe
-                src="http://localhost:8000"
+                src="http://35.222.252.237:8000"
                 width="100%"
                 height="500"
                 allow="microphone"
